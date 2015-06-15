@@ -27,6 +27,13 @@ public class SortTest {
         testSort(new InsertionSort());
     }
 
+    @Test
+    public void testSelectionSort() {
+        testSort(new SelectionSort());
+    }
+
+    // TODO add performance test
+
     private void testSort(final Sort sort) {
         Assert.assertArrayEquals(sort.sort(UNSORTED_UNREPEATABLE_ARRAY), SORTED_UNREPEATABLE_ARRAY);
         Assert.assertArrayEquals(sort.sort(UNSORTED_REPEATABLE_ARRAY), SORTED_REPEATABLE_ARRAY);
@@ -34,12 +41,12 @@ public class SortTest {
     }
 
     private static int[] generateRandomBigArray() {
-        final int million = 1000000;
+        final int hunredThousand = 100000;
 
-        final int[] bigArray = new int[million];
+        final int[] bigArray = new int[hunredThousand];
         final Random random = new Random();
 
-        for(int i = 0; i < million; i++) {
+        for(int i = 0; i < hunredThousand; i++) {
             bigArray[i] = random.nextInt();
         }
 
