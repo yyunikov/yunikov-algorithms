@@ -7,6 +7,10 @@ Sorting algorithms:
 - <a href="https://en.wikipedia.org/wiki/Bubble_sort">Bubble sort</a>;
 - <a href="https://en.wikipedia.org/wiki/Merge_sort">Merge sort</a>;
 
+<a href="https://en.wikipedia.org/wiki/Inversion_(discrete_mathematics)">Inversions</a> counting algorithms:
+- Brute force inversions count;
+- Merge sort inversions count;
+
 License
 =================
 The MIT License (MIT)
