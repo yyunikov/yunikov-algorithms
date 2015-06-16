@@ -9,21 +9,11 @@ public class MergeSort extends Sort {
 
     @Override
     protected int[] doSort(final int[] array) {
-        if (array.length > 2) {
+        if (array.length > 1) {
             final int[][] splittedArray = ArrayUtils.split(array);
             final int[] leftPart = doSort(splittedArray[0]); // left part
             final int[] rightPart = doSort(splittedArray[1]); // right part
             return merge(leftPart, rightPart);
-        }
-
-        if (array.length == 1) {
-            return array;
-        }
-
-        for (int i = 1; i < array.length; i++) {
-            if (array[i] < array[i - 1]) {
-                ArrayUtils.swap(array, i, i - 1);
-            }
         }
 
         return array;
