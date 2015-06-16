@@ -8,34 +8,32 @@ import ua.yyunikov.algorithms.util.ArrayUtils;
 public class MergeSort extends Sort {
 
     @Override
-    protected int[] doSort(final int[] array) {
+    protected void doSort(final int[] array) {
         if (array.length > 1) {
             final int[][] splittedArray = ArrayUtils.split(array);
-            final int[] leftPart = doSort(splittedArray[0]);
-            final int[] rightPart = doSort(splittedArray[1]);
-            return merge(leftPart, rightPart);
-        }
+            final int[] leftPart = splittedArray[0];
+            final int[] rightPart = splittedArray[1];
 
-        return array;
+            doSort(leftPart);
+            doSort(rightPart);
+            merge(array, leftPart, rightPart);
+        }
     }
 
-    private int[] merge(final int[] leftPart, final int[] rightPart) {
+    private void merge(final int[] array, final int[] leftPart, final int[] rightPart) {
         final int fullLength = leftPart.length + rightPart.length;
-        final int[] mergeResult = new int[fullLength];
         int leftPartCounter = 0;
         int rightPartCounter = 0;
 
         for (int loopCounter = 0; loopCounter < fullLength; loopCounter++) {
             // rightPartCounter can exceed the right part length so if yes, we just add all from the left part
             if (rightPartCounter >= rightPart.length || leftPartCounter < leftPart.length && leftPart[leftPartCounter] < rightPart[rightPartCounter]) {
-                mergeResult[loopCounter] = leftPart[leftPartCounter];
+                array[loopCounter] = leftPart[leftPartCounter];
                 leftPartCounter++;
             } else { // leftPartCounter can exceed the left part length so if yes, we just add all from the right part
-                mergeResult[loopCounter] = rightPart[rightPartCounter];
+                array[loopCounter] = rightPart[rightPartCounter];
                 rightPartCounter++;
             }
         }
-
-        return mergeResult;
     }
 }

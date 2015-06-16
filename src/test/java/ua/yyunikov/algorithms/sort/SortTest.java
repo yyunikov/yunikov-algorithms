@@ -35,8 +35,10 @@ public class SortTest {
     public void testJavaSort() {
         Arrays.sort(unrepeatableTestArray);
         Assert.assertArrayEquals(SORTED_UNREPEATABLE_ARRAY, unrepeatableTestArray);
+
         Arrays.sort(repeatableTestArray);
         Assert.assertArrayEquals(SORTED_REPEATABLE_ARRAY, repeatableTestArray);
+
         Arrays.sort(randomBigTestArray);
         Assert.assertArrayEquals(SORTED_RANDOM_BIG_ARRAY, randomBigTestArray);
     }
@@ -62,14 +64,22 @@ public class SortTest {
     }
 
     private void testSlowSort(final Sort sort) {
-        Assert.assertArrayEquals(SORTED_UNREPEATABLE_ARRAY, sort.sort(unrepeatableTestArray));
-        Assert.assertArrayEquals(SORTED_REPEATABLE_ARRAY, sort.sort(repeatableTestArray));
+        sort.sort(unrepeatableTestArray);
+        Assert.assertArrayEquals(SORTED_UNREPEATABLE_ARRAY, unrepeatableTestArray);
+
+        sort.sort(repeatableTestArray);
+        Assert.assertArrayEquals(SORTED_REPEATABLE_ARRAY, repeatableTestArray);
     }
 
     private void testSort(final Sort sort) {
-        Assert.assertArrayEquals(SORTED_UNREPEATABLE_ARRAY, sort.sort(unrepeatableTestArray));
-        Assert.assertArrayEquals(SORTED_REPEATABLE_ARRAY, sort.sort(repeatableTestArray));
-        Assert.assertArrayEquals(SORTED_RANDOM_BIG_ARRAY, sort.sort(randomBigTestArray));
+        sort.sort(unrepeatableTestArray);
+        Assert.assertArrayEquals(SORTED_UNREPEATABLE_ARRAY, unrepeatableTestArray);
+
+        sort.sort(repeatableTestArray);
+        Assert.assertArrayEquals(SORTED_REPEATABLE_ARRAY, repeatableTestArray);
+
+        sort.sort(randomBigTestArray);
+        Assert.assertArrayEquals(SORTED_RANDOM_BIG_ARRAY, randomBigTestArray);
     }
 
     private static int[] generateRandomArray(final int size) {

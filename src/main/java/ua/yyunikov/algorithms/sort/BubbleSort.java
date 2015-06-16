@@ -8,7 +8,7 @@ import ua.yyunikov.algorithms.util.ArrayUtils;
 public class BubbleSort extends Sort {
 
     @Override
-    protected int[] doSort(final int[] array) {
+    protected void doSort(final int[] array) {
         boolean swapped;
 
         do {
@@ -20,7 +20,5 @@ public class BubbleSort extends Sort {
                 }
             }
         } while (swapped);
-
-        return array;
     }
 }
