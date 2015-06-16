@@ -3,7 +3,7 @@ package ua.yyunikov.algorithms.sort;
 import ua.yyunikov.algorithms.util.ArrayUtils;
 
 /**
- * <a href="https://en.wikipedia.org/wiki/Bubble_sort">Bubble sort</a> algorithm. Running time of n^2.
+ * <a href="https://en.wikipedia.org/wiki/Bubble_sort">Bubble sort</a> algorithm. Running time is n^2.
  */
 public class BubbleSort extends Sort {
 
