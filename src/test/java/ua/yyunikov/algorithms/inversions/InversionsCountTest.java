@@ -17,8 +17,8 @@ public class InversionsCountTest {
     }
 
     @Test
-    public void testDivideConquerCount() {
-        testInversionsCount(new MergeInversionsCount());
+    public void testMergeSortCount() {
+        testInversionsCount(new MergeSortInversionsCount());
     }
 
     private void testInversionsCount(final InversionsCount inversionsCount) {
