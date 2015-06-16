@@ -6,7 +6,7 @@ import ua.yyunikov.algorithms.util.ArrayUtils;
  * Divide and conquer inversions count algorithm for counting the number of inversions in array.
  * Algorithm is similar to the merge sort algorithm. Running time is n*log(n).
  */
-public class DivideConquerInversionsCount extends InversionsCount {
+public class MergeInversionsCount extends InversionsCount {
 
     @Override
     protected long doCount(final int[] array) {
@@ -18,22 +18,24 @@ public class DivideConquerInversionsCount extends InversionsCount {
         final int[] leftPart = splittedArray[0];
         final int[] rightPart = splittedArray[1];
 
-        return doCount(leftPart) + doCount(rightPart) + countSplitInversions(leftPart, rightPart);
+        return doCount(leftPart) + doCount(rightPart) + mergeAndCountSplitInversions(array, leftPart, rightPart);
     }
 
-    private long countSplitInversions(final int[] leftPart, final int[] rightPart) {
+    private long mergeAndCountSplitInversions(final int[] array, final int[] leftPart, final int[] rightPart) {
         final int fullLength = leftPart.length + rightPart.length;
 
-        long count = 0;
+        int count = 0;
         int leftPartCounter = 0;
         int rightPartCounter = 0;
 
         for (int loopCounter = 0; loopCounter < fullLength; loopCounter++) {
             // rightPartCounter can exceed the right part length so if yes, we just add all from the left part
             if (rightPartCounter >= rightPart.length || leftPartCounter < leftPart.length && leftPart[leftPartCounter] < rightPart[rightPartCounter]) {
-                count += leftPart.length - leftPartCounter - 1;
+                array[loopCounter] = leftPart[leftPartCounter];
                 leftPartCounter++;
             } else { // leftPartCounter can exceed the left part length so if yes, we just add all from the right part
+                count += leftPart.length - leftPartCounter;
+                array[loopCounter] = rightPart[rightPartCounter];
                 rightPartCounter++;
             }
         }
