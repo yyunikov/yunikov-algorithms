@@ -1,7 +1,7 @@
 package ua.yyunikov.algorithms.inversions;
 
 /**
- * Abstract class for algorithms for counting inversions.
+ * Abstract class for algorithms for counting <a href="https://en.wikipedia.org/wiki/Inversion_(discrete_mathematics)">inversions</a>.
  */
 public abstract class InversionsCount {
 
