@@ -47,13 +47,18 @@ public class SortTest {
     }
 
     @Test
-    public void testInsertionSort() {
+    public void testSlowInsertionSort() {
         testSlowSort(new InsertionSort());
     }
 
     @Test
     public void testSlowSelectionSort() {
         testSlowSort(new SelectionSort());
+    }
+
+    @Test
+    public void testSlowBubbleSort() {
+        testSlowSort(new BubbleSort());
     }
 
     private void testSlowSort(final Sort sort) {
