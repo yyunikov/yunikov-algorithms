@@ -22,10 +22,10 @@ public class InversionsCountTest {
     }
 
     private void testInversionsCount(final InversionsCount inversionsCount) {
-        //Assert.assertEquals(3, inversionsCount.count(UNSORTED_SMALL_UNREPEATABLE_ARRAY));
-        //Assert.assertEquals(3, inversionsCount.count(UNSORTED_SMALL_UNREPEATABLE_ARRAY_2));
+        Assert.assertEquals(3, inversionsCount.count(UNSORTED_SMALL_UNREPEATABLE_ARRAY));
+        Assert.assertEquals(3, inversionsCount.count(UNSORTED_SMALL_UNREPEATABLE_ARRAY_2));
         Assert.assertEquals(6, inversionsCount.count(UNSORTED_SMALL_UNREPEATABLE_ARRAY_3));
-        //Assert.assertEquals(5, inversionsCount.count(UNSORTED_SMALL_UNREPEATABLE_ARRAY_4));
-        //Assert.assertEquals(15, inversionsCount.count(UNSORTED_SMALL_UNREPEATABLE_ARRAY_5));
+        Assert.assertEquals(5, inversionsCount.count(UNSORTED_SMALL_UNREPEATABLE_ARRAY_4));
+        Assert.assertEquals(15, inversionsCount.count(UNSORTED_SMALL_UNREPEATABLE_ARRAY_5));
     }
 }

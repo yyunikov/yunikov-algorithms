@@ -16,7 +16,7 @@ public abstract class InversionsCount {
             return 0;
         }
 
-        return doCount(array);
+        return doCount(array.clone());
     }
 
     protected abstract long doCount(final int[] array);

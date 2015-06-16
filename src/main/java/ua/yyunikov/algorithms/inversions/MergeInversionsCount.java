@@ -3,7 +3,7 @@ package ua.yyunikov.algorithms.inversions;
 import ua.yyunikov.algorithms.util.ArrayUtils;
 
 /**
- * Divide and conquer inversions count algorithm for counting the number of inversions in array.
+ * Merge (divide and conquer) inversions count algorithm for counting the number of inversions in array.
  * Algorithm is similar to the merge sort algorithm. Running time is n*log(n).
  */
 public class MergeInversionsCount extends InversionsCount {
