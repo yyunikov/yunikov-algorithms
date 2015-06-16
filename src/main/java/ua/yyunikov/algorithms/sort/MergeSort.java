@@ -2,6 +2,9 @@ package ua.yyunikov.algorithms.sort;
 
 import ua.yyunikov.algorithms.util.ArrayUtils;
 
+/**
+ * <a href="https://en.wikipedia.org/wiki/Merge_sort">Merge sort</a> algorithm. Running time of n*log(n).
+ */
 public class MergeSort extends Sort {
 
     @Override

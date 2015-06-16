@@ -2,6 +2,9 @@ package ua.yyunikov.algorithms.sort;
 
 import ua.yyunikov.algorithms.util.ArrayUtils;
 
+/**
+ * <a href="https://en.wikipedia.org/wiki/Selection_sort">Selection sort</a> algorithm. Running time of n^2.
+ */
 public class SelectionSort extends Sort {
 
     @Override
