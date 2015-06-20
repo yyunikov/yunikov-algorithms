@@ -11,6 +11,10 @@ Sorting algorithms:
 - Brute force inversions count;
 - Merge sort inversions count;
 
+# TODO
+- Matrix multiplication algorithms;
+- Search algorithms;
+
 License
 =================
 The MIT License (MIT)

@@ -14,6 +14,9 @@ public class SortTest {
     private static final int[] UNSORTED_UNREPEATABLE_ARRAY = new int[]{5, 7, 1, 3, 9, 15, 4, 55, 12, 0};
     private static final int[] SORTED_UNREPEATABLE_ARRAY = new int[]{0, 1, 3, 4, 5, 7, 9, 12, 15, 55};
 
+    private static final int[] UNSORTED_UNREPEATABLE_ARRAY_2 = new int[]{3, 8, 2, 5, 1, 4, 7, 6};
+    private static final int[] SORTED_UNREPEATABLE_ARRAY_2 = new int[]{1, 2, 3, 4, 5, 6, 7, 8};
+
     private static final int[] UNSORTED_REPEATABLE_ARRAY = new int[]{5, 7, 1, 3, 9, 15, 4, 3, 55, 12, 0, 1, 55};
     private static final int[] SORTED_REPEATABLE_ARRAY = new int[]{0, 1, 1, 3, 3, 4, 5, 7, 9, 12, 15, 55, 55};
 
@@ -41,6 +44,14 @@ public class SortTest {
 
         Arrays.sort(randomBigTestArray);
         Assert.assertArrayEquals(SORTED_RANDOM_BIG_ARRAY, randomBigTestArray);
+    }
+
+    @Test
+    public void testQuickSort() {
+        System.out.println(Arrays.toString(UNSORTED_UNREPEATABLE_ARRAY_2));
+        new QuickSort().sort(UNSORTED_UNREPEATABLE_ARRAY_2);
+        System.out.println(Arrays.toString(UNSORTED_UNREPEATABLE_ARRAY_2));
+        //testSort(new QuickSort());
     }
 
     @Test

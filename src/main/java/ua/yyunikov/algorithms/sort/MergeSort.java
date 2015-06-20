@@ -11,12 +11,10 @@ public class MergeSort extends Sort {
     protected void doSort(final int[] array) {
         if (array.length > 1) {
             final int[][] splittedArray = ArrayUtils.split(array);
-            final int[] leftPart = splittedArray[0];
-            final int[] rightPart = splittedArray[1];
 
-            doSort(leftPart);
-            doSort(rightPart);
-            merge(array, leftPart, rightPart);
+            doSort(splittedArray[0]);
+            doSort(splittedArray[1]);
+            merge(array, splittedArray[0], splittedArray[1]);
         }
     }
 

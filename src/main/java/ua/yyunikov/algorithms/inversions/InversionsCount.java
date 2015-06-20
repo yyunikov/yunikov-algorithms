@@ -21,6 +21,12 @@ public abstract class InversionsCount {
 
     protected abstract long doCount(final int[] array);
 
+    /**
+     * Computes a maximum count of inversions for an array of size arraySize.
+     *
+     * @param arraySize size of array
+     * @return maximum count of inversions for an array of size arraySize
+     */
     public static int largestCount(final int arraySize) {
         return arraySize*(arraySize - 1) / 2;
     }
