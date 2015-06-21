@@ -1,6 +1,6 @@
 package ua.yyunikov.algorithms;
 
 @FunctionalInterface
-public interface AssertAlgorithm {
+public interface AlgorithmAssert {
     void assertAlgorithm();
 }

@@ -26,11 +26,8 @@ public class BigDataSortTest extends SortTest {
     public void testJavaSort() {
         testRunningTime("Java Arrays.sort()", () -> {
             Arrays.sort(randomBigUnsortedArray);
-            Assert.assertArrayEquals(SORTED_RANDOM_BIG_NUMBERS_ARRAY, randomBigUnsortedArray);
-
             Arrays.sort(randomBigSortedArray);
-            Assert.assertArrayEquals(SORTED_RANDOM_BIG_NUMBERS_ARRAY, randomBigSortedArray);
-        });
+        }).asserting(this::assertSort);
     }
 
     @Test
@@ -47,10 +44,12 @@ public class BigDataSortTest extends SortTest {
     protected void testSort(final Sort sort) {
         testRunningTime(sort.getClass().getSimpleName(), () -> {
             sort.sort(randomBigUnsortedArray);
-            Assert.assertArrayEquals(SORTED_RANDOM_BIG_NUMBERS_ARRAY, randomBigUnsortedArray);
-
             sort.sort(randomBigSortedArray);
-            Assert.assertArrayEquals(SORTED_RANDOM_BIG_NUMBERS_ARRAY, randomBigSortedArray);
-        });
+        }).asserting(this::assertSort);
+    }
+
+    private void assertSort() {
+        Assert.assertArrayEquals(SORTED_RANDOM_BIG_NUMBERS_ARRAY, randomBigUnsortedArray);
+        Assert.assertArrayEquals(SORTED_RANDOM_BIG_NUMBERS_ARRAY, randomBigSortedArray);
     }
 }

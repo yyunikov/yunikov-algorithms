@@ -38,17 +38,11 @@ public class SmallDataSortTest extends SortTest {
     public void testJavaSort() {
         testRunningTime("Java Arrays.sort()", () -> {
             Arrays.sort(unrepeatableUnsortedArray);
-            Assert.assertArrayEquals(SORTED_UNREPEATABLE_ARRAY, unrepeatableUnsortedArray);
-
             Arrays.sort(repeatableUnsortedArray);
-            Assert.assertArrayEquals(SORTED_REPEATABLE_ARRAY, repeatableUnsortedArray);
-
             Arrays.sort(repeatableSortedArray);
-            Assert.assertArrayEquals(SORTED_REPEATABLE_ARRAY, repeatableSortedArray);
-
             Arrays.sort(randomTenThousandUnsortedArray);
-            Assert.assertArrayEquals(SORTED_RANDOM_TEN_THOUSAND_ARRAY, randomTenThousandUnsortedArray);
-        });
+            Arrays.sort(randomTenThousandSortedArray);
+        }).asserting(this::assertSort);
     }
 
     @Test
@@ -80,19 +74,18 @@ public class SmallDataSortTest extends SortTest {
     protected void testSort(final Sort sort) {
         testRunningTime(sort.getClass().getSimpleName(), () -> {
             sort.sort(unrepeatableUnsortedArray);
-            Assert.assertArrayEquals(SORTED_UNREPEATABLE_ARRAY, unrepeatableUnsortedArray);
-
             sort.sort(repeatableUnsortedArray);
-            Assert.assertArrayEquals(SORTED_REPEATABLE_ARRAY, repeatableUnsortedArray);
-
             sort.sort(repeatableSortedArray);
-            Assert.assertArrayEquals(SORTED_REPEATABLE_ARRAY, repeatableSortedArray);
-
             sort.sort(randomTenThousandUnsortedArray);
-            Assert.assertArrayEquals(SORTED_RANDOM_TEN_THOUSAND_ARRAY, randomTenThousandUnsortedArray);
-
             sort.sort(randomTenThousandSortedArray);
-            Assert.assertArrayEquals(SORTED_RANDOM_TEN_THOUSAND_ARRAY, randomTenThousandSortedArray);
-        });
+        }).asserting(this::assertSort);
+    }
+
+    private void assertSort() {
+        Assert.assertArrayEquals(SORTED_UNREPEATABLE_ARRAY, unrepeatableUnsortedArray);
+        Assert.assertArrayEquals(SORTED_REPEATABLE_ARRAY, repeatableUnsortedArray);
+        Assert.assertArrayEquals(SORTED_REPEATABLE_ARRAY, repeatableSortedArray);
+        Assert.assertArrayEquals(SORTED_RANDOM_TEN_THOUSAND_ARRAY, randomTenThousandUnsortedArray);
+        Assert.assertArrayEquals(SORTED_RANDOM_TEN_THOUSAND_ARRAY, randomTenThousandSortedArray);
     }
 }

@@ -1,7 +1,8 @@
 package ua.yyunikov.algorithms.sort;
 
 import org.junit.BeforeClass;
-import ua.yyunikov.algorithms.AssertAlgorithm;
+import ua.yyunikov.algorithms.AlgorithmAssert;
+import ua.yyunikov.algorithms.AlgorithmTest;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -33,12 +34,18 @@ public abstract class SortTest {
         return copy;
     }
 
-    protected void testRunningTime(final String algorithmName, final AssertAlgorithm assertSort) {
+    protected SortTest testRunningTime(final String algorithmName, final AlgorithmTest assertSort) {
         final long startTime = System.currentTimeMillis();
 
-        assertSort.assertAlgorithm();
+        assertSort.testAlgorithm();
 
         final long endTime = System.currentTimeMillis();
         System.out.println(algorithmName + " running time: " + (endTime - startTime) / 1000.0);
+
+        return this;
+    }
+
+    protected void asserting(final AlgorithmAssert algorithmAssert) {
+        algorithmAssert.assertAlgorithm();
     }
 }
