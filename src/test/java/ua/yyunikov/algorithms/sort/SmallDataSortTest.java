@@ -8,8 +8,6 @@ import java.util.Arrays;
 
 public class SmallDataSortTest extends SortTest {
 
-    private static final int TEN_THOUSAND = 10000;
-
     private static final int[] UNSORTED_UNREPEATABLE_ARRAY = new int[]{5, 7, 1, 3, 9, 15, 4, 55, 12, 0};
     private static final int[] SORTED_UNREPEATABLE_ARRAY = new int[]{0, 1, 3, 4, 5, 7, 9, 12, 15, 55};
 

@@ -8,8 +8,6 @@ import java.util.Arrays;
 
 public class BigDataSortTest extends SortTest {
 
-    private static final int MILLION = 1000000;
-
     private static final int[] UNSORTED_RANDOM_BIG_NUMBERS_ARRAY = generateRandomArray(MILLION);
     private static final int[] SORTED_RANDOM_BIG_NUMBERS_ARRAY = javaSort(UNSORTED_RANDOM_BIG_NUMBERS_ARRAY);
 
