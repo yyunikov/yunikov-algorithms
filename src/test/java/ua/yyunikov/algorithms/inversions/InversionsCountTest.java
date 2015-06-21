@@ -24,7 +24,7 @@ public class InversionsCountTest extends AlgorithmTest {
     }
 
     private void testInversionsCount(final InversionsCount inversionsCount) {
-        testRunningTime(inversionsCount.getClass().getSimpleName(), () -> {
+        runningTimeOf(inversionsCount.getClass().getSimpleName(), () -> {
             Assert.assertEquals(3, inversionsCount.count(UNSORTED_SMALL_UNREPEATABLE_ARRAY));
             Assert.assertEquals(3, inversionsCount.count(UNSORTED_SMALL_UNREPEATABLE_ARRAY_2));
             Assert.assertEquals(6, inversionsCount.count(UNSORTED_SMALL_UNREPEATABLE_ARRAY_3));

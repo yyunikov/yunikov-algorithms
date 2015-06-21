@@ -22,7 +22,7 @@ public class BigDataSortTest extends SortTest {
 
     @Test
     public void testJavaSort() {
-        testRunningTime("Java Arrays.sort()", () -> {
+        runningTimeOf("Java Arrays.sort()", () -> {
             Arrays.sort(randomBigUnsortedArray);
             Arrays.sort(randomBigSortedArray);
         }).asserting(this::assertSort);
@@ -40,7 +40,7 @@ public class BigDataSortTest extends SortTest {
 
     @Override
     protected void testSort(final Sort sort) {
-        testRunningTime(sort.getClass().getSimpleName(), () -> {
+        runningTimeOf(sort.getClass().getSimpleName(), () -> {
             sort.sort(randomBigUnsortedArray);
             sort.sort(randomBigSortedArray);
         }).asserting(this::assertSort);

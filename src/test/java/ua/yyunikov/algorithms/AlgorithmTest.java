@@ -26,7 +26,7 @@ public abstract class AlgorithmTest {
         return bigArray;
     }
 
-    public AlgorithmTest testRunningTime(final String algorithmName, final AlgorithmExecutor algorithmExecutor) {
+    public AlgorithmTest runningTimeOf(final String algorithmName, final AlgorithmExecutor algorithmExecutor) {
         final long startTime = System.currentTimeMillis();
 
         algorithmExecutor.execute();
