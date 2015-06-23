@@ -18,7 +18,7 @@ public class QuickSort extends Sort {
     }
 
     /**
-     * Chooses pivot index between start point and the end point.
+     * Randomly chooses pivot index between start point and the end point.
      *
      * @param startPoint lowest bound to choose the pivot from
      * @param endPoint highest bound to choose the pivot from
