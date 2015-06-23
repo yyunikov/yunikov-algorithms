@@ -1,7 +1,7 @@
 # Java algorithms
 Examples of implementation of a few different algorithms on Java.
 
-Sorting algorithms:
+<a href="https://en.wikipedia.org/wiki/Sorting_algorithm">Sorting algorithms</a>:
 - <a href="https://en.wikipedia.org/wiki/Insertion_sort">Insertion sort</a>;
 - <a href="https://en.wikipedia.org/wiki/Selection_sort">Selection sort</a>;
 - <a href="https://en.wikipedia.org/wiki/Bubble_sort">Bubble sort</a>;
