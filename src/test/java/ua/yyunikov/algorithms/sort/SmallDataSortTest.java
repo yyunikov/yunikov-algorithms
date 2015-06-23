@@ -3,10 +3,11 @@ package ua.yyunikov.algorithms.sort;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import ua.yyunikov.algorithms.AlgorithmTest;
 
 import java.util.Arrays;
 
-public class SmallDataSortTest extends SortTest {
+public class SmallDataSortTest extends AlgorithmTest {
 
     private static final int[] UNSORTED_UNREPEATABLE_ARRAY = new int[]{5, 7, 1, 3, 9, 15, 4, 55, 12, 0};
     private static final int[] SORTED_UNREPEATABLE_ARRAY = new int[]{0, 1, 3, 4, 5, 7, 9, 12, 15, 55};
@@ -68,8 +69,7 @@ public class SmallDataSortTest extends SortTest {
         testSort(new BubbleSort());
     }
 
-    @Override
-    protected void testSort(final Sort sort) {
+    private void testSort(final Sort sort) {
         runningTimeOf(sort.getClass().getSimpleName(), () -> {
             sort.sort(unrepeatableUnsortedArray);
             sort.sort(repeatableUnsortedArray);

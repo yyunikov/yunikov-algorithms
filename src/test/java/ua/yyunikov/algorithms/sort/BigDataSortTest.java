@@ -3,10 +3,11 @@ package ua.yyunikov.algorithms.sort;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import ua.yyunikov.algorithms.AlgorithmTest;
 
 import java.util.Arrays;
 
-public class BigDataSortTest extends SortTest {
+public class BigDataSortTest extends AlgorithmTest {
 
     private static final int[] UNSORTED_RANDOM_BIG_NUMBERS_ARRAY = generateRandomArray(MILLION);
     private static final int[] SORTED_RANDOM_BIG_NUMBERS_ARRAY = javaSort(UNSORTED_RANDOM_BIG_NUMBERS_ARRAY);
@@ -38,8 +39,7 @@ public class BigDataSortTest extends SortTest {
         testSort(new MergeSort());
     }
 
-    @Override
-    protected void testSort(final Sort sort) {
+    private void testSort(final Sort sort) {
         runningTimeOf(sort.getClass().getSimpleName(), () -> {
             sort.sort(randomBigUnsortedArray);
             sort.sort(randomBigSortedArray);

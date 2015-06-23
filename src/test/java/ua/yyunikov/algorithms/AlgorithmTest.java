@@ -2,6 +2,7 @@ package ua.yyunikov.algorithms;
 
 import org.junit.BeforeClass;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public abstract class AlgorithmTest {
@@ -24,6 +25,12 @@ public abstract class AlgorithmTest {
         }
 
         return bigArray;
+    }
+
+    protected static int[] javaSort(final int[] array) {
+        final int[] copy = array.clone();
+        Arrays.sort(copy);
+        return copy;
     }
 
     public AlgorithmTest runningTimeOf(final String algorithmName, final AlgorithmExecutor algorithmExecutor) {

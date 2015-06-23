@@ -5,8 +5,6 @@ import org.junit.Before;
 import org.junit.Test;
 import ua.yyunikov.algorithms.AlgorithmTest;
 
-import java.util.Arrays;
-
 public class SelectionTest extends AlgorithmTest {
 
     private static final int[] UNSORTED_UNREPEATABLE_ARRAY = new int[]{5, 7, 1, 3, 9, 15, 4, 55, 12, 0};
@@ -36,11 +34,5 @@ public class SelectionTest extends AlgorithmTest {
             Assert.assertEquals(3, selection.select(repeatableUnsortedArray, 3));
             Assert.assertEquals(SORTED_RANDOM_TEN_THOUSAND_ARRAY[1000], selection.select(randomTenThousandUnsortedArray, 1000));
         });
-    }
-
-    private static int[] javaSort(final int[] array) {
-        final int[] copy = array.clone();
-        Arrays.sort(copy);
-        return copy;
     }
 }
