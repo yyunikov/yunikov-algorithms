@@ -1,16 +1,13 @@
 package ua.yyunikov.algorithms.sort;
 
 import ua.yyunikov.algorithms.util.ArrayUtils;
-
-import java.util.Random;
+import ua.yyunikov.algorithms.util.RandomUtils;
 
 /**
  * <a href="https://en.wikipedia.org/?title=Quicksort">Quick sort</a> algorithm with randomized pivot point.
  * Running time is n*log(n).
  */
 public class QuickSort extends Sort {
-
-    private final Random random = new Random(System.currentTimeMillis());
 
     @Override
     protected void doSort(final int[] array) {
@@ -29,7 +26,7 @@ public class QuickSort extends Sort {
             return startPoint;
         }
 
-        return random.nextInt(endPoint - startPoint) + startPoint;
+        return RandomUtils.randomInt(startPoint, endPoint);
     }
 
     private void quickSort(final int[] array, final int leftIndex, final int rightIndex) {
