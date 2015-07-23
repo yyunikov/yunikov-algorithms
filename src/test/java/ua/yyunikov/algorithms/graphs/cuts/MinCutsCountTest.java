@@ -6,13 +6,6 @@ import ua.yyunikov.algorithms.AlgorithmTest;
 
 public class MinCutsCountTest extends AlgorithmTest {
 
-    private static final int[][] TEST_GRAPH_REPRESENTATION = {
-            {1, 2, 3, 4},
-            {2, 1, 3},
-            {3, 1, 2, 4},
-            {4, 1, 3}
-    };
-
     @Test
     public void testRandomContraction() {
         testMinimumCuts("Random Contraction", new RandomContractionMinCutsCount());
@@ -22,12 +15,12 @@ public class MinCutsCountTest extends AlgorithmTest {
         runningTimeOf(algorithmName, () -> {
             int minResult = Integer.MAX_VALUE;
 
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 1000; i++) {
                 final int result = minCutsCount.count(new int[][]{
-                        {1, 2, 3, 4},
-                        {2, 1, 3},
-                        {3, 1, 2, 4},
-                        {4, 1, 3}
+                        {2, 3, 4},
+                        {1, 3},
+                        {1, 2, 4},
+                        {1, 3}
                 });
                 if (result < minResult) {
                     minResult = result;

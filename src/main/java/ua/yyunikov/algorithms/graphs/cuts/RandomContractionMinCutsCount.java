@@ -7,6 +7,11 @@ import ua.yyunikov.algorithms.graphs.Vertex;
 import java.util.Iterator;
 import java.util.Random;
 
+/**
+ * <a href="https://en.wikipedia.org/wiki/Karger%27s_algorithm">Randomized contraction algorithm</> for counting number of minimum cuts.
+ * The value may differ depending on the execution as this is a randomized algorithm.
+ * It is recommended to run the algorithm multiple times (e.g. can be n times if n - is a number of vertices)
+ */
 public class RandomContractionMinCutsCount extends MinCutsCount {
 
     @Override
@@ -36,14 +41,13 @@ public class RandomContractionMinCutsCount extends MinCutsCount {
     }
 
     private void redirectEdges(final Graph graph, final Vertex fromVertex, final Vertex toVertex) {
-        for (final Iterator<Edge> it = fromVertex.getEdges().iterator(); it.hasNext(); ) {
+        for (final Iterator<Edge> it = fromVertex.getEdges().iterator(); it.hasNext();) {
             final Edge edge = it.next();
             it.remove();
 
-            if (edge.getOppositeVertex( fromVertex ) == toVertex) {
-                //remove self-loop
-                toVertex.getEdges().remove( edge );
-                graph.getEdges().remove( edge );
+            if (edge.getOppositeVertex(fromVertex) == toVertex) {
+                toVertex.getEdges().remove(edge);
+                graph.getEdges().remove(edge);
             } else {
                 edge.replaceVertex( fromVertex, toVertex );
                 toVertex.addEdge(edge);

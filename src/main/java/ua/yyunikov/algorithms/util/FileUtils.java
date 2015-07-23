@@ -8,8 +8,19 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Utilities for performing different kind of operations with files.
+ */
 public interface FileUtils {
 
+    /**
+     * Reads the values from file into two dimensional array.
+     * File should be formed accordingly and numbers should be divided by tabs in row.
+     *
+     * @param relPath path to file
+     * @return result in view of two dimensional array
+     * @throws IOException if any error occurs
+     */
     static int[][] twoDimensionalArray(final String relPath) throws IOException {
         final Map<Integer, List<Integer>> lines = new LinkedHashMap<>();
         final FileReader reader = new FileReader(relPath);
