@@ -14,11 +14,11 @@ Examples of implementation of a few different algorithms on Java.
 
 <a href="https://en.wikipedia.org/wiki/Selection_algorithm">Selection algorithms</a>:
 - <a href="https://en.wikipedia.org/wiki/Quickselect">Quickselect (Randomized selection)</a>;
+- TODO - O(n^2) selection algorithms to compare with Quickselect;
 
-# TODO
-- Matrix multiplication algorithms;
-- Search algorithms (Binary Search);
-- O(n^2) selection algorithms to compare with Quickselect;
+<a href="https://en.wikipedia.org/wiki/List_of_algorithms#Graph_algorithms">Graph algorithms</a>:
+- <a href="https://en.wikipedia.org/wiki/Karger%27s_algorithm">Randomized contraction (Karger) algorithm</>;
+- TODO add BFS and DFS algorithms;
 
 License
 =================
