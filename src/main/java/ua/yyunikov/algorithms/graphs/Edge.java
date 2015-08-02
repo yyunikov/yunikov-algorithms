@@ -6,63 +6,49 @@ import java.util.List;
 /**
  * Representation of edge for graph.
  */
-public class Edge<T> {
+public class Edge {
 
-    private final List<T> ends = new ArrayList<>();
-
-    private int weight;
+    private final List<Vertex> ends = new ArrayList<>();
 
     /**
      * Constructor.
      *
-     * @param startVertex one end of edge
-     * @param endVertex second end of edge
+     * @param v1 one end of edge
+     * @param v2 second end of edge
      */
-    public Edge(final T startVertex, final T endVertex) {
-        if (startVertex == null || endVertex == null) {
+    public Edge(final Vertex v1, final Vertex v2) {
+        if (v1 == null || v2 == null) {
             throw new IllegalArgumentException("Both vertices are required");
         }
 
-        ends.add(startVertex);
-        ends.add(endVertex);
-    }
-
-    /**
-     * Constructor.
-     *
-     * @param startVertex one end of edge
-     * @param endVertex second end of edge
-     * @param weight weight of edge
-     */
-    public Edge(final T startVertex, final T endVertex, final int weight) {
-        this(startVertex, endVertex);
-        this.weight = weight;
+        ends.add(v1);
+        ends.add(v2);
     }
 
     /**
      * Returns true if vertex v1 and vertex v2 are present.
      *
-     * @param startVertex one end of edge
-     * @param endVertex second end of edge
+     * @param v1 one end of edge
+     * @param v2 second end of edge
      * @return true if vertex v1 and vertex v2 are present, false otherwise
      */
-    public boolean contains(final T startVertex, final T endVertex) {
-        return ends.contains(startVertex) && ends.contains(endVertex);
+    public boolean contains(final Vertex v1, final Vertex v2) {
+        return ends.contains(v1) && ends.contains(v2);
     }
 
     /**
      * Gets the opposite vertex on edge for specified one.
      *
-     * @param vertex vertex to search opposite for
+     * @param v vertex to search opposite for
      * @return opposite vertex
      * @throws IllegalArgumentException if passed vertex is not in edge
      */
-    public T getOppositeVertex(final T vertex) {
-        if (!ends.contains(vertex)) {
-            throw new IllegalArgumentException("Vertex is not present in current edge");
+    public Vertex getOppositeVertex(final Vertex v) {
+        if (!ends.contains(v)) {
+            throw new IllegalArgumentException("Vertex " + v.getLabel());
         }
 
-        return ends.get(1 - ends.indexOf(vertex));
+        return ends.get(1 - ends.indexOf(v));
     }
 
     /**
@@ -72,9 +58,9 @@ public class Edge<T> {
      * @param newVertex vertex with which to replace
      * @throws IllegalArgumentException if passed vertex is not in edge
      */
-    public void replaceVertex(final T oldVertex, final T newVertex) {
+    public void replaceVertex(final Vertex oldVertex, final Vertex newVertex) {
         if (!ends.contains(oldVertex)) {
-            throw new IllegalArgumentException("Vertex is not present in current edge");
+            throw new IllegalArgumentException("Vertex " + oldVertex.getLabel());
         }
 
         ends.remove(oldVertex);
@@ -82,31 +68,11 @@ public class Edge<T> {
     }
 
     /**
-     * Checks if the edge has vertex1 and vertex2 ends.
-     *
-     * @param vertex1 one end
-     * @param vertex2 second end
-     * @return true if edge contains vertex1 and vertex2, false otherwise
-     */
-    public boolean hasEnds(final T vertex1, final T vertex2) {
-        return ends.contains(vertex1) && ends.contains(vertex2);
-    }
-
-    /**
      * Gets the list of ends for edge.
      *
      * @return list of ends
      */
-    public List<T> getEnds() {
+    public List<Vertex> getEnds() {
         return ends;
-    }
-
-    /**
-     * Gets the weight of the edge. Default to 0.
-     *
-     * @return weight of the edge
-     */
-    public int getWeight() {
-        return weight;
     }
 }
