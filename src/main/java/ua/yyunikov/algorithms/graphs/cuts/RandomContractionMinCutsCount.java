@@ -2,9 +2,9 @@ package ua.yyunikov.algorithms.graphs.cuts;
 
 import ua.yyunikov.algorithms.graphs.Edge;
 import ua.yyunikov.algorithms.graphs.Graph;
-import ua.yyunikov.algorithms.graphs.Vertex;
 
 import java.util.Iterator;
+import java.util.Objects;
 import java.util.Random;
 
 /**
@@ -15,42 +15,37 @@ import java.util.Random;
 public class RandomContractionMinCutsCount extends MinCutsCount {
 
     @Override
-    protected int doCount(final Graph graph) {
+    protected int doCount(final Graph<Integer> graph) {
         final Random random = new Random(System.currentTimeMillis());
 
         while(graph.getVertices().size() > 2) {
-            final Edge edge = graph.getEdges().remove(random.nextInt(graph.getEdges().size()));
-            final Vertex v1 = cleanVertex(graph, edge.getEnds().get(0), edge);
-            final Vertex v2 = cleanVertex(graph, edge.getEnds().get(1), edge);
+            final Edge<Integer> edge = graph.getEdges().remove(random.nextInt(graph.getEdges().size()));
+            final Integer v1 = cleanVertex(graph, edge.getEnds().get(0));
+            final Integer v2 = cleanVertex(graph, edge.getEnds().get(1));
 
-            final Vertex mergedVertex = new Vertex(v1.getLabel());
-            redirectEdges(graph, v1, mergedVertex);
-            redirectEdges(graph, v2, mergedVertex);
+            redirectEdges(graph, v1, v1);
+            redirectEdges(graph, v2, v1);
 
-            graph.addVertex(mergedVertex);
+            graph.addVertex(v1);
         }
 
         return graph.getEdges().size();
     }
 
-    private Vertex cleanVertex(final Graph graph, final Vertex vertex, final Edge edge) {
-        graph.getVertices().remove(vertex.getLabel());
-        vertex.getEdges().remove(edge);
-
+    private Integer cleanVertex(final Graph<Integer> graph, final Integer vertex) {
+        graph.getVertices().remove(vertex);
         return vertex;
     }
 
-    private void redirectEdges(final Graph graph, final Vertex fromVertex, final Vertex toVertex) {
-        for (final Iterator<Edge> it = fromVertex.getEdges().iterator(); it.hasNext();) {
-            final Edge edge = it.next();
+    private void redirectEdges(final Graph<Integer> graph, final Integer fromVertex, final Integer toVertex) {
+        for (final Iterator<Edge<Integer>> it = graph.getVertexEdges(fromVertex).iterator(); it.hasNext();) { // get edges only from fromVertex
+            final Edge<Integer> edge = it.next();
             it.remove();
 
-            if (edge.getOppositeVertex(fromVertex) == toVertex) {
-                toVertex.getEdges().remove(edge);
+            if (Objects.equals(edge.getOppositeVertex(fromVertex), toVertex)) {
                 graph.getEdges().remove(edge);
             } else {
-                edge.replaceVertex( fromVertex, toVertex );
-                toVertex.addEdge(edge);
+                edge.replaceVertex(fromVertex, toVertex);
             }
         }
     }

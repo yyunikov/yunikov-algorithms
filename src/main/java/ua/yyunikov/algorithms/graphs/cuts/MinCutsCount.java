@@ -13,7 +13,7 @@ public abstract class MinCutsCount {
      * @param graph graph for counting minimum cuts
      * @return minimum cuts count
      */
-    public int count(final Graph graph) {
+    public int count(final Graph<Integer> graph) {
         if (graph.getEdges().size() == 0) {
             return 0;
         }
@@ -31,8 +31,8 @@ public abstract class MinCutsCount {
      * @return minimum cuts count
      */
     public int count(final int[][] graphArray) {
-        return doCount(Graph.createGraph(graphArray));
+        return doCount(Graph.create(graphArray));
     }
 
-    protected abstract int doCount(final Graph graph);
+    protected abstract int doCount(final Graph<Integer> graph);
 }

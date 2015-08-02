@@ -1,18 +1,16 @@
 package ua.yyunikov.algorithms.graphs;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Representation of a graph.
  */
-public class Graph {
+public class Graph<T> {
 
-    private final Map<Integer, Vertex> vertices = new TreeMap<>(Integer::compareTo);
+    private final Set<T> vertices = new HashSet<>();
 
-    private final List<Edge> edges = new ArrayList<>();
+    private final List<Edge<T>> edges = new ArrayList<>();
 
     /**
      * Creates the graph from two dimensional array.
@@ -20,17 +18,17 @@ public class Graph {
      * @param array array to create a graph from
      * @return created graph
      */
-    public static Graph createGraph(int[][] array) {
-        final Graph graph = new Graph();
+    public static Graph<Integer> create(int[][] array) {
+        final Graph<Integer> graph = new Graph<>();
 
         for (int i = 0; i < array.length; i++) {
-            final Vertex currentVertex = graph.getVertexOrAdd(i);
+            final Integer currentVertex = graph.getVertexOrAdd(i);
 
             for (int edgeTo : array[i]) {
-                final Vertex secondVertex = graph.getVertexOrAdd(edgeTo);
-                final Edge edge = secondVertex.getEdgeTo(currentVertex);
+                final Integer secondVertex = graph.getVertexOrAdd(edgeTo);
+                final Optional<Edge<Integer>> edgeOptional = graph.getEdge(secondVertex, currentVertex);
 
-                if(edge == null) {
+                if(!edgeOptional.isPresent()) {
                     createEdge(graph, currentVertex, secondVertex);
                 }
             }
@@ -39,41 +37,50 @@ public class Graph {
         return graph;
     }
 
-    private static Edge createEdge(final Graph graph, final Vertex firstVertex, final Vertex secondVertex) {
-        final Edge edge = new Edge(firstVertex, secondVertex);
-
-        graph.getEdges().add(edge);
-        firstVertex.addEdge(edge);
-        secondVertex.addEdge(edge);
-
-        return edge;
+    private static Edge<Integer> createEdge(final Graph<Integer> graph, final Integer firstVertex, final Integer secondVertex) {
+        final Edge<Integer> newEdge = new Edge<>(firstVertex, secondVertex);
+        graph.getEdges().add(newEdge);
+        return newEdge;
     }
 
     /**
      * Adds a vertex to a graph.
      *
-     * @param v vertex to add
+     * @param vertex vertex to add
      */
-    public void addVertex(final Vertex v) {
-        vertices.put(v.getLabel(), v);
+    public void addVertex(final T vertex) {
+        vertices.add(vertex);
     }
 
     /**
-     * Gets the vertex by label or add the new vertex with such label if it is not found.
+     * Gets the vertex or add the new vertex with such label if it is not found.
      *
-     * @param label vertex label
+     * @param vertexToFind vertex to get or add
      * @return vertex with specified label
      */
-    public Vertex getVertexOrAdd(final int label) {
-        final Vertex vertexByLabel = vertices.get(label);
-        if (vertexByLabel != null) {
-            return vertexByLabel;
+    public T getVertexOrAdd(final T vertexToFind) {
+        for (final T vertex: vertices) {
+            if (Objects.equals(vertexToFind, vertex)) {
+                return vertex;
+            }
         }
 
-        final Vertex newVertex = new Vertex(label);
-        addVertex(newVertex);
+        addVertex(vertexToFind);
+        return vertexToFind;
+    }
 
-        return newVertex;
+    public Optional<Edge<T>> getEdge(final T from, final T to) {
+        for (final Edge<T> edge: edges) {
+            if (edge.hasEnds(from, to)) {
+                return Optional.of(edge);
+            }
+        }
+
+        return Optional.empty();
+    }
+
+    public List<Edge<T>> getVertexEdges(final T vertex) {
+        return edges.stream().filter(edge -> edge.getEnds().contains(vertex)).collect(Collectors.toList());
     }
 
     /**
@@ -81,16 +88,16 @@ public class Graph {
      *
      * @return list of graph edges
      */
-    public List<Edge> getEdges() {
+    public List<Edge<T>> getEdges() {
         return edges;
     }
 
     /**
-     * Gets the map of graph vertices containing labels as keys and vertices as values.
+     * Gets the set of graph vertices.
      *
-     * @return map of graph vertices
+     * @return set of graph vertices
      */
-    public Map<Integer, Vertex> getVertices() {
+    public Set<T> getVertices() {
         return vertices;
     }
 }
