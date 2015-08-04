@@ -7,6 +7,7 @@ Examples of implementation of a few different algorithms on Java.
 - <a href="https://en.wikipedia.org/wiki/Bubble_sort">Bubble sort</a>;
 - <a href="https://en.wikipedia.org/wiki/Merge_sort">Merge sort</a>;
 - <a href="https://en.wikipedia.org/?title=Quicksort">Quick sort</a>;
+- TODO Heap sort;
 
 <a href="https://en.wikipedia.org/wiki/Inversion_(discrete_mathematics)">Inversions</a> counting algorithms:
 - Brute force inversions count;
@@ -19,6 +20,7 @@ Examples of implementation of a few different algorithms on Java.
 <a href="https://en.wikipedia.org/wiki/List_of_algorithms#Graph_algorithms">Graph algorithms</a>:
 - <a href="https://en.wikipedia.org/wiki/Karger%27s_algorithm">Randomized contraction (Karger) algorithm</a>;
 - TODO add BFS and DFS algorithms;
+- TODO shortest path algorithms;
 
 License
 =================

@@ -1,16 +1,13 @@
 package ua.yyunikov.algorithms.graphs;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 /**
  * Representation of a graph.
  */
 public class Graph {
 
-    private final Map<Integer, Vertex> vertices = new TreeMap<>(Integer::compareTo);
+    private final Map<Integer, Vertex> vertices = new HashMap<>();
 
     private final List<Edge> edges = new ArrayList<>();
 
@@ -20,7 +17,7 @@ public class Graph {
      * @param array array to create a graph from
      * @return created graph
      */
-    public static Graph createGraph(int[][] array) {
+    public static Graph createGraph(final int[][] array) {
         final Graph graph = new Graph();
 
         for (int i = 0; i < array.length; i++) {
@@ -28,10 +25,10 @@ public class Graph {
 
             for (int edgeTo : array[i]) {
                 final Vertex secondVertex = graph.getVertexOrAdd(edgeTo);
-                final Edge edge = secondVertex.getEdgeTo(currentVertex);
+                final Optional<Edge> edge = secondVertex.getEdgeTo(currentVertex);
 
-                if(edge == null) {
-                    createEdge(graph, currentVertex, secondVertex);
+                if(!edge.isPresent()) {
+                    graph.createEdge(currentVertex, secondVertex);
                 }
             }
         }
@@ -39,14 +36,33 @@ public class Graph {
         return graph;
     }
 
-    private static Edge createEdge(final Graph graph, final Vertex firstVertex, final Vertex secondVertex) {
-        final Edge edge = new Edge(firstVertex, secondVertex);
+    /**
+     * Creates edge in the graph from firstVertex to secondVertex.
+     *
+     * @param firstVertex one end of edge
+     * @param secondVertex second end of edge
+     * @param weight weight of edge
+     * @return created edge
+     */
+    public Edge createEdge(final Vertex firstVertex, final Vertex secondVertex, final int weight) {
+        final Edge edge = new Edge(firstVertex, secondVertex, weight);
 
-        graph.getEdges().add(edge);
+        getEdges().add(edge);
         firstVertex.addEdge(edge);
         secondVertex.addEdge(edge);
 
         return edge;
+    }
+
+    /**
+     * Creates edge in the graph from firstVertex to secondVertex.
+     *
+     * @param firstVertex one end of edge
+     * @param secondVertex second end of edge
+     * @return created edge
+     */
+    public Edge createEdge(final Vertex firstVertex, final Vertex secondVertex) {
+        return createEdge(firstVertex, secondVertex, 0);
     }
 
     /**
@@ -74,6 +90,21 @@ public class Graph {
         addVertex(newVertex);
 
         return newVertex;
+    }
+
+    /**
+     * Gets the vertex by label or returns empty optional if it is not found.
+     *
+     * @param label vertex label
+     * @return vertex with specified label or empty if not found
+     */
+    public Optional<Vertex> getVertex(final int label) {
+        final Vertex vertexByLabel = vertices.get(label);
+        if (vertexByLabel != null) {
+            return Optional.of(vertexByLabel);
+        }
+
+        return Optional.empty();
     }
 
     /**

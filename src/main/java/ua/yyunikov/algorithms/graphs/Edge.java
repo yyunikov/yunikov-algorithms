@@ -10,6 +10,8 @@ public class Edge {
 
     private final List<Vertex> ends = new ArrayList<>();
 
+    private int weight;
+
     /**
      * Constructor.
      *
@@ -17,12 +19,24 @@ public class Edge {
      * @param v2 second end of edge
      */
     public Edge(final Vertex v1, final Vertex v2) {
+        this(v1, v2, 0);
+    }
+
+    /**
+     * Constructor.
+     *
+     * @param v1 one end of edge
+     * @param v2 second end of edge
+     * @param weight weight of edge
+     */
+    public Edge(final Vertex v1, final Vertex v2, final int weight) {
         if (v1 == null || v2 == null) {
             throw new IllegalArgumentException("Both vertices are required");
         }
 
         ends.add(v1);
         ends.add(v2);
+        this.weight = weight;
     }
 
     /**
@@ -74,5 +88,14 @@ public class Edge {
      */
     public List<Vertex> getEnds() {
         return ends;
+    }
+
+    /**
+     * Weight (length) of the edge.
+     *
+     * @return weight of the edge
+     */
+    public int getWeight() {
+        return weight;
     }
 }
