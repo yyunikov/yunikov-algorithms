@@ -19,8 +19,8 @@ Examples of implementation of a few different algorithms on Java.
 
 <a href="https://en.wikipedia.org/wiki/List_of_algorithms#Graph_algorithms">Graph algorithms</a>:
 - <a href="https://en.wikipedia.org/wiki/Karger%27s_algorithm">Randomized contraction (Karger) algorithm</a>;
+- <a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Dijkstra's shortest path algorithm</a>;
 - TODO add BFS and DFS algorithms;
-- TODO shortest path algorithms;
 
 License
 =================
