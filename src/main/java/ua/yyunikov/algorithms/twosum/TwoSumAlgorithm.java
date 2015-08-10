@@ -11,7 +11,7 @@ public abstract class TwoSumAlgorithm {
      *
      * @param array input array for the algorithm
      * @param sum sum of two numbers to look for
-     * @return true if
+     * @return true if sum exists in the array, false otherwise
      */
     public boolean twoSumExists(final long[] array, final long sum) {
         return twoSumExists(array, sum, false);

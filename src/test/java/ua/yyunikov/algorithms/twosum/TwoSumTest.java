@@ -6,6 +6,8 @@ import ua.yyunikov.algorithms.AlgorithmTest;
 import ua.yyunikov.algorithms.util.FileUtils;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TwoSumTest extends AlgorithmTest {
 
@@ -19,30 +21,36 @@ public class TwoSumTest extends AlgorithmTest {
     @Test
     public void testHashTableTwoSum() {
         testTwoSum("Hash table two sum algorithm", new HashTableTwoSum());
+        //testTwoSumOnHugeData(new HashTableTwoSum());
     }
 
     private void testTwoSum(final String algorithmName, final TwoSumAlgorithm twoSumAlgorithm) {
         runningTimeOf(algorithmName, () -> {
-            // test 1
             Assert.assertEquals(true, twoSumAlgorithm.twoSumExists(TEST_ARRAY, 9));
             Assert.assertEquals(true, twoSumAlgorithm.twoSumExists(TEST_ARRAY, -11));
             Assert.assertEquals(true, twoSumAlgorithm.twoSumExists(TEST_ARRAY, 10, false));
             Assert.assertEquals(false, twoSumAlgorithm.twoSumExists(TEST_ARRAY, 10, true));
-
-            // test 2
-            try {
-                final long[] longArray = FileUtils.toLongArray("src/test/java/ua/yyunikov/algorithms/twosum/2sum.txt");
-                int counter = 0;
-                for (int i = -10000; i <= 10000; i++) {
-                    if (twoSumAlgorithm.twoSumExists(longArray, i, true)) {
-                        counter++;
-                    }
-                }
-
-                System.out.println(counter);
-            } catch (final IOException e) {
-                System.err.println("Unexpected error: " + e);
-            }
         });
+    }
+
+    private void testTwoSumOnHugeData(final HashTableTwoSum hashTableTwoSum) {
+        try {
+            final long[] longArray = FileUtils.toLongArray("src/test/java/ua/yyunikov/algorithms/twosum/2sum.txt");
+            final Map<Long, Long> hashMap = new HashMap<>(longArray.length);
+            for (long element: longArray) {
+                hashMap.put(element, element);
+            }
+
+            int counter = 0;
+            for (int i = -10000; i <= 10000; i++) {
+                if (hashTableTwoSum.twoSumExists(hashMap, i, true)) {
+                    counter++;
+                }
+            }
+
+            System.out.println(counter);
+        } catch (final IOException e) {
+            System.err.println("Unexpected error: " + e);
+        }
     }
 }
