@@ -19,7 +19,6 @@ Examples of implementation of a few different algorithms on Java.
 <a href="https://en.wikipedia.org/wiki/Selection_algorithm">Selection algorithms</a>:
 - <a href="https://en.wikipedia.org/wiki/Quickselect">Quickselect (Randomized selection)</a>;
 - TODO Deterministic selection;
-- TODO - O(n^2) selection algorithms to compare with Quickselect;
 
 <a href="https://en.wikipedia.org/wiki/List_of_algorithms#Graph_algorithms">Graph algorithms</a>:
 - <a href="https://en.wikipedia.org/wiki/Karger%27s_algorithm">Randomized contraction (Karger) algorithm</a>;
@@ -27,8 +26,11 @@ Examples of implementation of a few different algorithms on Java.
 - TODO add BFS and DFS algorithms;
 
 Two-sum algorithm, one of variations of <a href="https://en.wikipedia.org/wiki/Subset_sum_problem">subset sum problem<a/>:
-- Binary search two sum algorithm;
-- Hash table two sum algorithm;
+- Binary search two-sum algorithm;
+- Hash table two-sum algorithm;
+
+Median maintenance algorithm:
+- Heap median maintenance (median maintenance using two heaps); 
 
 License
 =================

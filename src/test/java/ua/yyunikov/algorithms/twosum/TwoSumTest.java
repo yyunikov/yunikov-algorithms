@@ -21,7 +21,7 @@ public class TwoSumTest extends AlgorithmTest {
     @Test
     public void testHashTableTwoSum() {
         testTwoSum("Hash table two sum algorithm", new HashTableTwoSum());
-        //testTwoSumOnHugeData(new HashTableTwoSum());
+        // testTwoSumOnHugeData(new HashTableTwoSum());
     }
 
     private void testTwoSum(final String algorithmName, final TwoSumAlgorithm twoSumAlgorithm) {
