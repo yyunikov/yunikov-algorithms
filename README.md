@@ -2,35 +2,35 @@
 Examples of implementation of a few algorithms on Java.
 
 <a href="https://en.wikipedia.org/wiki/Sorting_algorithm">Sorting algorithms</a>:
-- <a href="https://en.wikipedia.org/wiki/Insertion_sort">Insertion sort</a>;
-- <a href="https://en.wikipedia.org/wiki/Selection_sort">Selection sort</a>;
-- <a href="https://en.wikipedia.org/wiki/Bubble_sort">Bubble sort</a>;
-- <a href="https://en.wikipedia.org/wiki/Merge_sort">Merge sort</a>;
-- <a href="https://en.wikipedia.org/?title=Quicksort">Quick sort</a>;
-- <a href="https://en.wikipedia.org/wiki/Heapsort">Heap sort</a>;
+- <a href="https://en.wikipedia.org/wiki/Insertion_sort">Insertion sort</a> - <a href="https://github.com/yyunikov/java-algorithms/blob/master/src/main/java/ua/yyunikov/algorithms/sort/InsertionSort.java">InsertionSort.java</a>;
+- <a href="https://en.wikipedia.org/wiki/Selection_sort">Selection sort</a> - <a href="https://github.com/yyunikov/java-algorithms/blob/master/src/main/java/ua/yyunikov/algorithms/sort/SelectionSort.java">SelectionSort.java</a>;
+- <a href="https://en.wikipedia.org/wiki/Bubble_sort">Bubble sort</a> - <a href="https://github.com/yyunikov/java-algorithms/blob/master/src/main/java/ua/yyunikov/algorithms/sort/BubbleSort.java">BubbleSort.java</a>;
+- <a href="https://en.wikipedia.org/wiki/Merge_sort">Merge sort</a> - <a href="https://github.com/yyunikov/java-algorithms/blob/master/src/main/java/ua/yyunikov/algorithms/sort/MergeSort.java">MergeSort.java</a>;
+- <a href="https://en.wikipedia.org/?title=Quicksort">Quick sort</a> - <a href="https://github.com/yyunikov/java-algorithms/blob/master/src/main/java/ua/yyunikov/algorithms/sort/QuickSort.java">QuickSort.java</a>;
+- <a href="https://en.wikipedia.org/wiki/Heapsort">Heap sort</a> - <a href="https://github.com/yyunikov/java-algorithms/blob/master/src/main/java/ua/yyunikov/algorithms/sort/HeapSort.java">HeapSort.java</a>;
 
 <a href="https://en.wikipedia.org/wiki/Search_algorithm">Search algorithms:</a>
-- <a href="https://en.wikipedia.org/wiki/Binary_search_algorithm">Binary search in array</a>;
+- <a href="https://en.wikipedia.org/wiki/Binary_search_algorithm">Binary search in array</a> - <a href="https://github.com/yyunikov/java-algorithms/blob/master/src/main/java/ua/yyunikov/algorithms/search/BinarySearch.java">BinarySearch.java</a>;
 
 <a href="https://en.wikipedia.org/wiki/Inversion_(discrete_mathematics)">Inversions</a> counting algorithms:
-- Brute force inversions count;
-- Merge sort inversions count;
+- Brute force inversions count - <a href="https://github.com/yyunikov/java-algorithms/blob/master/src/main/java/ua/yyunikov/algorithms/inversions/BruteForceInversionsCount.java">BruteForceInversionsCount.java</a>;
+- Merge sort inversions count - <a href="https://github.com/yyunikov/java-algorithms/blob/master/src/main/java/ua/yyunikov/algorithms/inversions/MergeSortInversionsCount.java">MergeSortInversionsCount.java</a>;
 
 <a href="https://en.wikipedia.org/wiki/Selection_algorithm">Selection algorithms</a>:
-- <a href="https://en.wikipedia.org/wiki/Quickselect">Quickselect (Randomized selection)</a>;
+- <a href="https://en.wikipedia.org/wiki/Quickselect">Quickselect (Randomized selection)</a> - <a href="https://github.com/yyunikov/java-algorithms/blob/master/src/main/java/ua/yyunikov/algorithms/selection/QuickSelect.java">QuickSelect.java</a>;
 - TODO Deterministic selection;
 
 <a href="https://en.wikipedia.org/wiki/List_of_algorithms#Graph_algorithms">Graph algorithms</a>:
-- <a href="https://en.wikipedia.org/wiki/Karger%27s_algorithm">Randomized contraction (Karger) algorithm</a>;
-- <a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Dijkstra's shortest path algorithm</a>;
+- <a href="https://en.wikipedia.org/wiki/Karger%27s_algorithm">Randomized contraction (Karger) algorithm</a> - <a href="https://github.com/yyunikov/java-algorithms/blob/master/src/main/java/ua/yyunikov/algorithms/graphs/cuts/RandomContractionMinCutsCount.java">RandomContractionMinCutsCount.java</a>;
+- <a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Dijkstra's shortest path algorithm</a> - <a href="https://github.com/yyunikov/java-algorithms/blob/master/src/main/java/ua/yyunikov/algorithms/graphs/paths/DijkstrasShortestPath.java">DijkstrasShortestPath.java</a>;
 - TODO add BFS and DFS algorithms;
 
 Two-sum algorithm, one of variations of <a href="https://en.wikipedia.org/wiki/Subset_sum_problem">subset sum problem<a/>:
-- Binary search two-sum algorithm;
-- Hash table two-sum algorithm;
+- Binary search two-sum algorithm - <a href="https://github.com/yyunikov/java-algorithms/blob/master/src/main/java/ua/yyunikov/algorithms/twosum/BinarySearchTwoSum.java">BinarySearchTwoSum.java</a>;
+- Hash table two-sum algorithm - <a href="https://github.com/yyunikov/java-algorithms/blob/master/src/main/java/ua/yyunikov/algorithms/twosum/HashTableTwoSum.java">HashTableTwoSum.java</a>;
 
-Median maintenance algorithm:
-- Heap median maintenance (median maintenance using two heaps); 
+Other:
+- Heap median maintenance (median maintenance using two heaps) - <a href="https://github.com/yyunikov/java-algorithms/blob/master/src/main/java/ua/yyunikov/algorithms/median/HeapMedianMaintenance.java">HeapMedianMaintenance.java</a>; 
 
 License
 =================
