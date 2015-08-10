@@ -5,7 +5,7 @@ import ua.yyunikov.algorithms.util.ArrayUtils;
 import java.util.Random;
 
 /**
- * QuickSelect (Randomized selection) algorithm for finding n-th ranked element in the array.
+ * QuickSelect (Randomized selection) algorithm for finding n-th ranked (minimum) element in the array.
  * Based on the same idea as QuickSort algorithm.
  * Running time is O(n*log(n)).
  */

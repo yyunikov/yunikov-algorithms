@@ -18,7 +18,6 @@ Examples of implementation of a few algorithms on Java.
 
 <a href="https://en.wikipedia.org/wiki/Selection_algorithm">Selection algorithms</a>:
 - <a href="https://en.wikipedia.org/wiki/Quickselect">Quickselect (Randomized selection)</a> - <a href="https://github.com/yyunikov/java-algorithms/blob/master/src/main/java/ua/yyunikov/algorithms/selection/QuickSelect.java">QuickSelect.java</a>;
-- TODO Deterministic selection;
 
 <a href="https://en.wikipedia.org/wiki/List_of_algorithms#Graph_algorithms">Graph algorithms</a>:
 - <a href="https://en.wikipedia.org/wiki/Karger%27s_algorithm">Randomized contraction (Karger) algorithm</a> - <a href="https://github.com/yyunikov/java-algorithms/blob/master/src/main/java/ua/yyunikov/algorithms/graphs/cuts/RandomContractionMinCutsCount.java">RandomContractionMinCutsCount.java</a>;

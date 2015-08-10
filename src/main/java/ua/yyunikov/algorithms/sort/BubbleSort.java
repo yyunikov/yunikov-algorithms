@@ -15,7 +15,7 @@ public class BubbleSort extends Sort {
             swapped = false;
             for (int i = 1; i < array.length; i++) {
                 if (array[i - 1] > array[i]) {
-                    ArrayUtils.swap(array, i- 1,i);
+                    ArrayUtils.swap(array, i - 1,i);
                     swapped = true;
                 }
             }
