@@ -30,7 +30,7 @@ Two-sum algorithm, one of variations of <a href="https://en.wikipedia.org/wiki/S
 - Hash table two-sum algorithm - <a href="https://github.com/yyunikov/java-algorithms/blob/master/src/main/java/ua/yyunikov/algorithms/twosum/HashTableTwoSum.java">HashTableTwoSum.java</a>;
 
 Other:
-- Heap median maintenance (median maintenance using two heaps) - <a href="https://github.com/yyunikov/java-algorithms/blob/master/src/main/java/ua/yyunikov/algorithms/median/HeapMedianMaintenance.java">HeapMedianMaintenance.java</a>; 
+- Median maintenance using two heaps - <a href="https://github.com/yyunikov/java-algorithms/blob/master/src/main/java/ua/yyunikov/algorithms/median/HeapMedianMaintenance.java">HeapMedianMaintenance.java</a>; 
 
 License
 =================
