@@ -35,7 +35,7 @@ public class SmallDataSortTest extends AlgorithmTest {
 
     @Test
     public void testJavaSort() {
-        runningTimeOf("Java Arrays.sort()", () -> {
+        runningTimeOf("Java Arrays.sort() on small data", () -> {
             Arrays.sort(unrepeatableUnsortedArray);
             Arrays.sort(repeatableUnsortedArray);
             Arrays.sort(repeatableSortedArray);
@@ -75,7 +75,7 @@ public class SmallDataSortTest extends AlgorithmTest {
     }
 
     private void testSort(final Sort sort) {
-        runningTimeOf(sort.getClass().getSimpleName(), () -> {
+        runningTimeOf(sort.getClass().getSimpleName() + "on small data", () -> {
             sort.sort(unrepeatableUnsortedArray);
             sort.sort(repeatableUnsortedArray);
             sort.sort(repeatableSortedArray);
