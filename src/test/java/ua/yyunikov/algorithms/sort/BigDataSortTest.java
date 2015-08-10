@@ -39,6 +39,11 @@ public class BigDataSortTest extends AlgorithmTest {
         testSort(new MergeSort());
     }
 
+    @Test
+    public void testHeapSort() {
+        testSort(new HeapSort());
+    }
+
     private void testSort(final Sort sort) {
         runningTimeOf(sort.getClass().getSimpleName(), () -> {
             sort.sort(randomBigUnsortedArray);

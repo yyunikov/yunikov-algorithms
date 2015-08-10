@@ -55,6 +55,11 @@ public class SmallDataSortTest extends AlgorithmTest {
     }
 
     @Test
+    public void testHeapSort() {
+        testSort(new HeapSort());
+    }
+
+    @Test
     public void testInsertionSort() {
         testSort(new InsertionSort());
     }

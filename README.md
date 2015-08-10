@@ -1,5 +1,5 @@
 # Java algorithms
-Examples of implementation of a few different algorithms on Java.
+Examples of implementation of a few algorithms on Java.
 
 <a href="https://en.wikipedia.org/wiki/Sorting_algorithm">Sorting algorithms</a>:
 - <a href="https://en.wikipedia.org/wiki/Insertion_sort">Insertion sort</a>;
@@ -7,7 +7,7 @@ Examples of implementation of a few different algorithms on Java.
 - <a href="https://en.wikipedia.org/wiki/Bubble_sort">Bubble sort</a>;
 - <a href="https://en.wikipedia.org/wiki/Merge_sort">Merge sort</a>;
 - <a href="https://en.wikipedia.org/?title=Quicksort">Quick sort</a>;
-- TODO Heap sort;
+- <a href="https://en.wikipedia.org/wiki/Heapsort">Heap sort</a>;
 
 <a href="https://en.wikipedia.org/wiki/Search_algorithm">Search algorithms:</a>
 - <a href="https://en.wikipedia.org/wiki/Binary_search_algorithm">Binary search in array</a>;
