@@ -9,18 +9,26 @@ Examples of implementation of a few different algorithms on Java.
 - <a href="https://en.wikipedia.org/?title=Quicksort">Quick sort</a>;
 - TODO Heap sort;
 
+<a href="https://en.wikipedia.org/wiki/Search_algorithm">Search algorithms:</a>
+- <a href="https://en.wikipedia.org/wiki/Binary_search_algorithm">Binary search in array</a>;
+
 <a href="https://en.wikipedia.org/wiki/Inversion_(discrete_mathematics)">Inversions</a> counting algorithms:
 - Brute force inversions count;
 - Merge sort inversions count;
 
 <a href="https://en.wikipedia.org/wiki/Selection_algorithm">Selection algorithms</a>:
 - <a href="https://en.wikipedia.org/wiki/Quickselect">Quickselect (Randomized selection)</a>;
+- Deterministic selection;
 - TODO - O(n^2) selection algorithms to compare with Quickselect;
 
 <a href="https://en.wikipedia.org/wiki/List_of_algorithms#Graph_algorithms">Graph algorithms</a>:
 - <a href="https://en.wikipedia.org/wiki/Karger%27s_algorithm">Randomized contraction (Karger) algorithm</a>;
 - <a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Dijkstra's shortest path algorithm</a>;
 - TODO add BFS and DFS algorithms;
+
+Two-sum algorithm, one of variations of <a href="https://en.wikipedia.org/wiki/Subset_sum_problem">subset sum problem<a/>:
+- Binary search two sum algorithm;
+- Hash table two sum algorithm;
 
 License
 =================

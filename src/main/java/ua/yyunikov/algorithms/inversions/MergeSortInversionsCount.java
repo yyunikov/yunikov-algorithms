@@ -4,7 +4,7 @@ import ua.yyunikov.algorithms.util.ArrayUtils;
 
 /**
  * Merge sort inversions count algorithm for counting the number of inversions in array.
- * Algorithm is similar to the merge sort algorithm. Running time is n*log(n).
+ * Algorithm is similar to the merge sort algorithm. Running time is O(n*log(n)).
  */
 public class MergeSortInversionsCount extends InversionsCount {
 

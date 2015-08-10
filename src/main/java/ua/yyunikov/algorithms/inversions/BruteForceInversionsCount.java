@@ -2,7 +2,7 @@ package ua.yyunikov.algorithms.inversions;
 
 /**
  * Brute force algorithm for counting number of inversions in array by straight forward looping though all array elements.
- * Running time is n^2.
+ * Running time is O(n^2).
  */
 public class BruteForceInversionsCount extends InversionsCount {
 

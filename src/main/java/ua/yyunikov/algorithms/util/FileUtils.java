@@ -17,6 +17,28 @@ import java.util.Map;
 public interface FileUtils {
 
     /**
+     * Reads the values from file into integer array.
+     *
+     * @param relPath path to file
+     * @return integer array that was read
+     * @throws IOException if any error occurs
+     */
+    static int[] toIntArray(final String relPath) throws IOException {
+        return Files.lines(Paths.get(relPath)).mapToInt(Integer::valueOf).toArray();
+    }
+
+    /**
+     * Reads the values from file into long array.
+     *
+     * @param relPath path to file
+     * @return long array that was read
+     * @throws IOException if any error occurs
+     */
+    static long[] toLongArray(final String relPath) throws IOException {
+        return Files.lines(Paths.get(relPath)).mapToLong(Long::valueOf).toArray();
+    }
+
+    /**
      * Reads the values from file into two dimensional array.
      * File should be formed accordingly with integers only and numbers should be divided by tabs in row.
      *

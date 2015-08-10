@@ -5,7 +5,7 @@ import ua.yyunikov.algorithms.util.RandomUtils;
 
 /**
  * <a href="https://en.wikipedia.org/?title=Quicksort">Quick sort</a> algorithm with randomized pivot point.
- * Running time is n*log(n).
+ * Running time is O(n*log(n)).
  */
 public class QuickSort extends Sort {
 
