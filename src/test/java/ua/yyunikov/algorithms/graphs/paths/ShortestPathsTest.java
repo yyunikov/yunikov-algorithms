@@ -2,8 +2,8 @@ package ua.yyunikov.algorithms.graphs.paths;
 
 import org.junit.Assert;
 import org.junit.Test;
-import ua.yyunikov.algorithms.AlgorithmTest;
 import ua.yyunikov.algorithms.graphs.Graph;
+import ua.yyunikov.algorithms.graphs.GraphAlgorithmTest;
 import ua.yyunikov.algorithms.graphs.Vertex;
 import ua.yyunikov.algorithms.util.FileUtils;
 
@@ -13,7 +13,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ShortestPathsTest extends AlgorithmTest {
+public class ShortestPathsTest extends GraphAlgorithmTest {
 
     @Test
     public void testDijktrasShortestPath() {
@@ -23,24 +23,8 @@ public class ShortestPathsTest extends AlgorithmTest {
     private void testShortestPaths(final String algorithmName, final ShortestPath shortestPath) {
         runningTimeOf(algorithmName, () -> {
             // test 1
-            final Graph graph = new Graph();
-            final Vertex vertexOne = new Vertex(1);
-            final Vertex vertexTwo = new Vertex(2);
-            final Vertex vertexThree = new Vertex(3);
-            final Vertex vertexFour = new Vertex(4);
-
-            graph.addVertex(vertexOne);
-            graph.addVertex(vertexTwo);
-            graph.addVertex(vertexThree);
-            graph.addVertex(vertexFour);
-
-            graph.createEdge(vertexOne, vertexTwo, 1);
-            graph.createEdge(vertexOne, vertexThree, 4);
-            graph.createEdge(vertexTwo, vertexThree, 2);
-            graph.createEdge(vertexTwo, vertexFour, 6);
-            graph.createEdge(vertexThree, vertexFour, 3);
-
-            Assert.assertEquals(6, shortestPath.findShortestPath(graph, vertexOne, vertexFour));
+            final Graph graph = createTestGraph();
+            Assert.assertEquals(6, shortestPath.findShortestPath(graph, testVertices.get(0), testVertices.get(3)));
 
             // test 2
             try {

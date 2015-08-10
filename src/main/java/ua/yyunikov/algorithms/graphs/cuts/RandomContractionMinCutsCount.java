@@ -16,10 +16,9 @@ public class RandomContractionMinCutsCount extends MinCutsCount {
 
     @Override
     protected int doCount(final Graph graph) {
-        final Random random = new Random(System.currentTimeMillis());
-
         while(graph.getVertices().size() > 2) {
-            final Edge edge = graph.getEdges().remove(random.nextInt(graph.getEdges().size()));
+            final int randomEdgeIndex = new Random().nextInt(graph.getEdges().size());
+            final Edge edge = graph.getEdges().remove(randomEdgeIndex);
             final Vertex v1 = cleanVertex(graph, edge.getEnds().get(0), edge);
             final Vertex v2 = cleanVertex(graph, edge.getEnds().get(1), edge);
 
@@ -49,7 +48,7 @@ public class RandomContractionMinCutsCount extends MinCutsCount {
                 toVertex.getEdges().remove(edge);
                 graph.getEdges().remove(edge);
             } else {
-                edge.replaceVertex( fromVertex, toVertex );
+                edge.replaceVertex(fromVertex, toVertex);
                 toVertex.addEdge(edge);
             }
         }

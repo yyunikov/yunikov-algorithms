@@ -1,5 +1,6 @@
 package ua.yyunikov.algorithms.graphs;
 
+
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
@@ -89,9 +90,8 @@ public class Vertex implements Comparable<Vertex> {
 
         final Vertex vertex = (Vertex) o;
 
-        if (label != vertex.label) return false;
-        if (value != null ? !value.equals(vertex.value) : vertex.value != null) return false;
-        return !(edges != null ? !edges.equals(vertex.edges) : vertex.edges != null);
+        return label == vertex.label && !(value != null ? !value.equals(vertex.value) :
+                vertex.value != null) && !(edges != null ? !edges.equals(vertex.edges) : vertex.edges != null);
 
     }
 
