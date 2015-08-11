@@ -9,6 +9,7 @@ import java.util.*;
 /**
  * <a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Dijkstra's shortest path</a> algorithm for the graph.
  * Running time is O(m*log(n)), where n - number of vertices, m - number of edges.
+ * TODO improve using heap
  */
 public class DijkstrasShortestPath extends ShortestPath {
 
