@@ -9,7 +9,6 @@ import java.util.*;
 /**
  * <a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Dijkstra's shortest path</a> algorithm for the graph.
  * Running time is O(m*log(n)), where n - number of vertices, m - number of edges.
- * TODO improve using heap
  */
 public class DijkstrasShortestPath extends ShortestPath {
 
@@ -27,37 +26,29 @@ public class DijkstrasShortestPath extends ShortestPath {
     }
 
     private void processMinScoreVertex(final Map<Vertex, Integer> vertexShortestPaths, final List<Vertex> processedVertices) {
-        final Map<Edge, Integer> currentGreedyScores = createCurrentGreedyScores(vertexShortestPaths, processedVertices);
-        final int minGreedyScore = Collections.min(currentGreedyScores.values());
+        final PriorityQueue<EdgeScorePair> currentGreedyScores = createCurrentGreedyScores(vertexShortestPaths, processedVertices);
+        final EdgeScorePair minGreedyScore = currentGreedyScores.peek();
 
-        for (final Map.Entry<Edge, Integer> entry: currentGreedyScores.entrySet()) {
-            if (entry.getValue() == minGreedyScore) {
-                final Vertex processed = findProcessedVertex(entry.getKey(), processedVertices);
-                final Vertex nonProcessed = entry.getKey().getOppositeVertex(processed);
-                final int edgeScore = entry.getValue();
+        final Vertex processed = findProcessedVertex(minGreedyScore.getEdge(), processedVertices);
+        final Vertex nonProcessed = minGreedyScore.getEdge().getOppositeVertex(processed);
 
-                vertexShortestPaths.put(nonProcessed, edgeScore);
-                processedVertices.add(nonProcessed);
-                return;
-            }
-        }
-
-        throw new IllegalStateException("Can't find vertex by the minimum greedy score");
+        vertexShortestPaths.put(nonProcessed, minGreedyScore.getScore());
+        processedVertices.add(nonProcessed);
     }
 
-    private Map<Edge, Integer> createCurrentGreedyScores(final Map<Vertex, Integer> vertexShortestPaths, final List<Vertex> processedVertices) {
-        final Map<Edge, Integer> currentGreedyScores = new HashMap<>();
+    private PriorityQueue<EdgeScorePair> createCurrentGreedyScores(final Map<Vertex, Integer> vertexShortestPaths, final List<Vertex> processedVertices) {
+        final PriorityQueue<EdgeScorePair> greedyScoresHeap = new PriorityQueue<>(EdgeScorePair::compareTo);
 
         for (final Vertex vertex: processedVertices) {
             for (final Edge vertexEdge: vertex.getEdges()) {
                 final Vertex oppositeVertex = vertexEdge.getOppositeVertex(vertex);
                 if (!processedVertices.contains(oppositeVertex)) {
-                    currentGreedyScores.put(vertexEdge, vertexShortestPaths.get(vertex) + vertexEdge.getWeight());
+                    greedyScoresHeap.add(new EdgeScorePair(vertexEdge, vertexShortestPaths.get(vertex) + vertexEdge.getWeight()));
                 }
             }
         }
 
-        return currentGreedyScores;
+        return greedyScoresHeap;
     }
 
     private Vertex findProcessedVertex(final Edge edge, final List<Vertex> processedVertices) {
@@ -71,5 +62,32 @@ public class DijkstrasShortestPath extends ShortestPath {
         }
 
         throw new IllegalStateException("Edge should contain one non processed vertex");
+    }
+
+    private static class EdgeScorePair implements Comparable<EdgeScorePair> {
+        private Edge edge;
+        private int score;
+
+        public EdgeScorePair(final Edge edge, final int score) {
+            this.edge = edge;
+            this.score = score;
+        }
+
+        public Edge getEdge() {
+            return edge;
+        }
+
+        public int getScore() {
+            return score;
+        }
+
+        @Override
+        public int compareTo(final EdgeScorePair scorePair) {
+            if (scorePair == null) {
+                return 0;
+            }
+
+            return Integer.compare(this.getScore(), scorePair.getScore());
+        }
     }
 }
