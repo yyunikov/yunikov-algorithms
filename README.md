@@ -1,4 +1,4 @@
-# Java algorithms
+# Algorithms
 Examples of implementation of a few algorithms on Java.
 
 <a href="https://en.wikipedia.org/wiki/Sorting_algorithm">Sorting algorithms</a>:
